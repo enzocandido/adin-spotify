@@ -12,6 +12,7 @@ function App() {
   const [ accessToken, setAccessToken] = useState("");
   //const [ albums, setAlbums] = useState([]);
   const [ tracks, setTracks] = useState([]);
+  const [ artists, setArtist] = useState([]);
 
   useEffect(() => {
     //API Token
@@ -40,14 +41,20 @@ async function search(){
   }
   var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters)
   .then(response => response.json())
-  .then(data => { return data.artists.items[0].id })
-
+  .then(data => { return data.artists.items[0].id})
   // request usando o id do artista para pegar todos os albuns
   //  var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters)
   //  .then(response => response.json())
   //  .then(data => {
   //    setAlbums(data.items);
   //  });
+
+  var artist = await fetch('https://api.spotify.com/v1/artists?ids=' + artistID, searchParameters)
+    .then(response => response.json())
+    .then(data => {
+      setArtist(data.artists);
+    });
+    console.log(artists);
 
   var topTracks = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks?country=BR', searchParameters)
     .then(response => response.json())
@@ -78,11 +85,16 @@ async function search(){
         </InputGroup>
       </Container>
       <Container>
+        <Card>
+          <Card.Img src=""/>
+        </Card>
+      </Container>
+      <Container>
         <Row className="mx cols-4">
             {tracks.map((track, i) => {
               return (
-                <Card class="p-4">
-                  <Card.Body>
+                <Card>
+                  <Card.Body class="p-5 m-1">
                     <Card.Title>{track.name}</Card.Title>
                     <audio controls="controls">
                       <source src={track.preview_url} type="audio/mpeg"></source>
