@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import Routes from "./routes";
 
 const CLIENT_ID = '9d1a189307f24dedaeffe23b35257742';
 const CLIENT_SECRET = '57208f8db8724ba182ff6ef0f8c342d4';
@@ -88,8 +88,8 @@ async function search(){
         {
           artists.map((artist, i) => {
             return (
-              <Card class="center m-4">
-                <Card.Img class="rounded-circle"
+              <Card class="m-4">
+                <Card.Img class="rounded-circle center"
                 src={artist.images[0].url}
                 width="170" height="180"
                 />
@@ -117,6 +117,7 @@ async function search(){
             })}
         </Row>
       </Container>
+      <Routes/>
     </div>
   );
 }
