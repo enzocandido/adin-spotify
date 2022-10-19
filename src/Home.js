@@ -1,22 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import styles from './styles/Home.module.css'
+
+
 const Home = () =>{
   return (
-    <div>
-      <h1>Página Inicial</h1>
-      <nav>
+      <div className={styles.homeContainer}>
         <ul>
-          <li>
-            <Link to="/sobre">Sobre</Link>
-          </li>
-          <li>
-            <Link to="/usuario">Usuario</Link>
+          <li className={styles.botao}>
+            <Link to="/spotify">Iniciar Spotify</Link>
           </li>
         </ul>
-      </nav>
     </div>
   );
 }
+
 
 export default Home;

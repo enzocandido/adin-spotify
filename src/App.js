@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import styles from "./styles/Home.module.css";
+import styles from "./styles/Spotify.module.css";
 
 const CLIENT_ID = '9d1a189307f24dedaeffe23b35257742';
 const CLIENT_SECRET = '57208f8db8724ba182ff6ef0f8c342d4';
