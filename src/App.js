@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import Routes from "./routes";
+import styles from "./styles/Home.module.css";
 
 const CLIENT_ID = '9d1a189307f24dedaeffe23b35257742';
 const CLIENT_SECRET = '57208f8db8724ba182ff6ef0f8c342d4';
@@ -54,17 +54,19 @@ async function search(){
     .then(data => {
       setArtist(data.artists);
     });
-    console.log(artists);
+    //console.log(artists);
 
   var topTracks = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks?country=BR', searchParameters)
     .then(response => response.json())
     .then(data => {
       setTracks(data.tracks);
     });
-    //console.log(tracks)
+    console.log(tracks)
+
+    
 }
 
-// mostrar todos os albums para o usuario 
+// mostrar todos as tracks para o usuario 
   return (
     <div className="App">
       <Container>
@@ -84,18 +86,20 @@ async function search(){
             </Button>
         </InputGroup>
       </Container>
-      <Container>
+      <Container className="column col-3 mt-4">
         {
           artists.map((artist, i) => {
             return (
-              <Card class="m-4">
-                <Card.Img class="rounded-circle center"
-                src={artist.images[0].url}
-                width="170" height="180"
+              <Card className={styles.background}>
+                <Card.Img className="rounded-circle center img-fluid p-4"
+                  src={artist.images[0].url}
                 />
-              <Card.Title class="mt-2 font-weight-bold">
+              <Card.Title className="mt-2 mb-4 font-weight-bold">
                 {artist.name}
               </Card.Title>
+              <Card.Body>
+                <a href={'https://open.spotify.com/artist/' + artist.id} target="_noblank">Ver no Spotify</a>
+              </Card.Body>
               </Card>
             )
           })
@@ -105,19 +109,21 @@ async function search(){
         <Row className="mx cols-4">
             {tracks.map((track, i) => {
               return (
-                <Card>
-                  <Card.Body class="p-5 m-1">
-                    <Card.Title>{track.name}</Card.Title>
+                <Card className={styles.background}>
+                  <Card.Body className="p-5 m-1">
+                    <Card.Title className="mb-4">{track.name}</Card.Title>
                     <audio controls="controls">
                       <source src={track.preview_url} type="audio/mpeg"></source>
                     </audio>
+                  </Card.Body>
+                  <Card.Body>
+                    <a href={track.external_urls.spotify} target="_noblank">Ouvir no Spotify</a>
                   </Card.Body>
                 </Card>
               )
             })}
         </Row>
       </Container>
-      <Routes/>
     </div>
   );
 }

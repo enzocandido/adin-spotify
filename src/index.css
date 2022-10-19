@@ -5,9 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(8,78,35);
+  background: linear-gradient(344deg, rgba(8,78,35,1) 0%, rgba(19,198,87,1) 46%, rgba(11,105,47,1) 100%);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+card {
+  background: rgba(0,0,0,0.5);
+}
+
+*{
+  color: rgba(255, 255, 255, 0.605);
 }
