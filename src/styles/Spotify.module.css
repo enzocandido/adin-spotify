@@ -31,4 +31,12 @@
 	transform: scale(1.1);
 }
 
-.
+.input{
+    margin-top: 20px;
+    border: none;
+}
+
+.container{
+    height: calc(99vh - 65px);
+    padding: 210px;
+}

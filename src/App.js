@@ -13,6 +13,8 @@ function App() {
   //const [ albums, setAlbums] = useState([]);
   const [ tracks, setTracks] = useState([]);
   const [ artists, setArtist] = useState([]);
+  const [ searchStatus, setSearchStatus] = useState(false);
+  let classSearchStatus = searchStatus ? '' : styles.container
 
   useEffect(() => {
     //API Token
@@ -30,7 +32,6 @@ function App() {
 
 //busca
 async function search(){
-
   // request usando a busca para conseguir o id do artista
   var searchParameters = {
     method: 'GET',
@@ -61,27 +62,34 @@ async function search(){
     .then(data => {
       setTracks(data.tracks);
     });
-    console.log(tracks)
-
+    console.log(tracks)   
     
+   
+}
+
+function searchClasses(){
+  if(searchStatus == false && searchInput !== '')
+    setSearchStatus(searchStatus => !searchStatus);
+  search();
 }
 
 // mostrar todos as tracks para o usuario 
   return (
     <div className="App">
+    <Container className={classSearchStatus}>
       <Container>
-        <InputGroup className="mb-3 mt-4" size="lg">
+        <InputGroup className={styles.input} size="lg">
           <FormControl
             placeholder="Busque o artista"
             type="input"
             onKeyPress={event => {
               if(event.key == "Enter"){
-                search();
+                searchClasses();
               }
             }}
             onChange= {event => setSearchInput(event.target.value)}
             />
-            <Button onClick={search}>
+            <Button onClick={searchClasses}>
               Buscar
             </Button>
         </InputGroup>
@@ -123,6 +131,7 @@ async function search(){
               )
             })}
         </Row>
+        </Container>
       </Container>
     </div>
   );
