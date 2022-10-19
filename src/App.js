@@ -61,14 +61,14 @@ async function search(){
     .then(data => {
       setTracks(data.tracks);
     });
-    console.log(tracks)
+    //console.log(tracks)
 }
 
 // mostrar todos os albums para o usuario 
   return (
     <div className="App">
       <Container>
-        <InputGroup className="mb-3" size="lg">
+        <InputGroup className="mb-3 mt-4" size="lg">
           <FormControl
             placeholder="Busque o artista"
             type="input"
@@ -85,9 +85,21 @@ async function search(){
         </InputGroup>
       </Container>
       <Container>
-        <Card>
-          <Card.Img src=""/>
-        </Card>
+        {
+          artists.map((artist, i) => {
+            return (
+              <Card class="center m-4">
+                <Card.Img class="rounded-circle"
+                src={artist.images[0].url}
+                width="170" height="180"
+                />
+              <Card.Title class="mt-2 font-weight-bold">
+                {artist.name}
+              </Card.Title>
+              </Card>
+            )
+          })
+        }
       </Container>
       <Container>
         <Row className="mx cols-4">
