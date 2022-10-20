@@ -3,9 +3,7 @@
     margin: 0 ;
     margin: 20px 0px 40px;
     padding: 20px 30px;
-
 }
-
 
 .background{
     margin-bottom: 40px;
@@ -21,9 +19,7 @@
     -moz-transform: scale(1.02);
 	-webkit-transform: scale(1.02);        
 	transform: scale(1.02);
-
 }
-
 
 .cardArtistContainer {
     background-color: transparent;
@@ -34,7 +30,6 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
-
 }
 
 .cardArtistContainer {
@@ -57,13 +52,11 @@
     background-color: #191414;
     padding: 20px 50px;
     border-radius: 10px;
-
 }
 
 .cardArtistContainer .descriptionContent .cardArtistTitle {
     font-size: 100px;
     font-weight: 700;
-
 }
 .cardArtistContainer .descriptionContent .cardArtistDescri {
     display: flex;
@@ -72,7 +65,6 @@
     text-align: center;
     font-size:30px ;
     font-weight: 600;
-
 }
 
 .cardArtistContainer .descriptionContent .cardArtistDescri p{
@@ -81,7 +73,6 @@
     width: 60%;
     margin-top: 5px;
     padding-top: 3px;
-    
 }
 
 .cardArtistContainer .descriptionContent .cardArtistLink {
@@ -96,13 +87,9 @@
     padding: 4px 20px;
     border-radius: 20px;
     background-color: #1db954;
-    
-    
 }
 .cardArtistContainer .descriptionContent .cardArtistLink a:hover{
     background-color: #0b8837;
-
-
 }
 
 .cardContainer {
@@ -117,53 +104,39 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: blue; */
     width: 70%;
     margin: 0 !important;
     height: 70px ;
-
 }
 
-
-
-
-
 .background .cardTitle {
-    /* background-color:aqua; */
     display: flex;
     flex-direction: column;
     align-items: center !important;
     justify-content: center;
     margin: 0;
     color: azure;
-    
 }
 
 .background .cardContentLink {
-    /* background-color:rgb(17, 79, 79); */
     width: 30%;
     margin: 0 !important;
     display: flex;
     align-items: center;
     justify-content: end;
-    
-    
 }
 
 .background .cardContentLink .cardLink {
-    /* background-color:aqua; */
     text-decoration: none;
     color: white;
     background-color: #1db954;
     padding: 6px 28px;
     border-radius: 50px;
     font-weight: 600;
-
 }
 
 .background .cardContentLink .cardLink:hover {
     background-color: #0b8837;
-
 }
 
 .imageBg{
@@ -185,7 +158,6 @@
 .input{
     margin-top: 20px;
     border: none;
-    
 }
 
 .container{
@@ -196,10 +168,6 @@
 .esconder {
     display: hidden;
 }
-
-/* Estilos dos inputs */
-
-
 
 .inputContainer {
     height: 100%;
@@ -218,18 +186,14 @@
     border: none;
     border-bottom: 2px solid white;
     color: azure;
-
 }
 
 .inputContainer input:hover {
     background-color: #191414;
-    
 }
 .inputContainer input:focus {
     background-color: #191414;
     color: azure;
-
-
 }
 
 .inputContainer button {
@@ -260,7 +224,6 @@
 }
 
 @media (max-width: 770px) {
-
     .cardArtistContainer .descriptionContent .cardArtistTitle {
         font-size: 45px;
     line-height: 50px;
@@ -268,10 +231,8 @@
     }
 
     .cardArtistContainer .descriptionContent .cardArtistDescri {
-
         font-size:20px ;
         font-weight: 600;
-    
     }
     
     .cardArtistContainer .descriptionContent .cardArtistDescri p{
@@ -280,36 +241,25 @@
         width: 60%;
         margin-top: 5px;
         padding-top: 3px;
-        
     }
     .background .cardTitle {
         font-size: 18px;
         width: 100%;
         text-align: left;
         padding-right: 10px;
-        
     }
     .background .cardContentLink {
-        /* background-color:aqua; */
         width: 13%;
         line-height: 18px;
         font-size: 14px;
-        
     }
 
     .container {
         padding: 100px;
     }
-    
-    
 }
 
 @media (max-width: 550px) {
-
-    /* .inputContainer button {
-        width: 100px;
-        font-size: 16px !important;
-    } */
     .cardArtistContainer {
         flex-wrap: wrap;
     }

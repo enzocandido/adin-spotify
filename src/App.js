@@ -4,14 +4,12 @@ import { Container, InputGroup, FormControl, Button, Row, Card} from 'react-boot
 import { useState, useEffect } from 'react';
 import styles from "./styles/Spotify.module.css";
 
-
 const CLIENT_ID = '9d1a189307f24dedaeffe23b35257742';
 const CLIENT_SECRET = '57208f8db8724ba182ff6ef0f8c342d4';
 
 function App() {
   const [ searchInput, setSearchInput] = useState("");
   const [ accessToken, setAccessToken] = useState("");
-  //const [ albums, setAlbums] = useState([]);
   const [ tracks, setTracks] = useState([]);
   const [ artists, setArtist] = useState([]);
   const [ searchStatus, setSearchStatus] = useState(false);
@@ -20,7 +18,7 @@ function App() {
 
 
   useEffect(() => {
-    //API Token
+    //autenticacao com token para acessar api
     var authParameters = {
       method: 'POST',
       headers: {
@@ -35,8 +33,7 @@ function App() {
 
 //busca
 async function search(){
-  // request usando a busca para conseguir o id do artista
-
+  // request para conseguir o id do artista
   var searchParameters = {
     method: 'GET',
     headers: {
@@ -47,12 +44,6 @@ async function search(){
   var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters)
   .then(response => response.json())
   .then(data => { return data.artists.items[0].id})
-  // request usando o id do artista para pegar todos os albuns
-  //  var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters)
-  //  .then(response => response.json())
-  //  .then(data => {
-  //    setAlbums(data.items);
-  //  });
 
   var artist = await fetch('https://api.spotify.com/v1/artists?ids=' + artistID, searchParameters)
     .then(response => response.json())
@@ -67,19 +58,18 @@ async function search(){
       setTracks(data.tracks);
     });
     //console.log(tracks)   
-    
-   
 }
 
+//funcao para alterar classe apos a pesquisa
 function searchClasses(){
   if(searchStatus == false && searchInput !== '')
     setSearchStatus(searchStatus => !searchStatus);
   search();
 }
 
+//funcao para verificar se a url da track existe
 function trackUrlCheck(trackUrl){
   if(trackUrl !== null){
-
     return(
       <audio controls className={styles.audioClass}>
         <source src={trackUrl} type="audio/mpeg"></source>
@@ -92,9 +82,10 @@ function trackUrlCheck(trackUrl){
   }
 }
 
-// mostrar todos as tracks para o usuario 
+//retornar os dados para o usuario
   return (
     <div className="App"> 
+    {/* input para buscar o artista */}
     <Container className={classSearchStatus}>
       <Container className={styles.inputContainer}>
         <InputGroup className={styles.input} size="lg">
@@ -113,6 +104,7 @@ function trackUrlCheck(trackUrl){
             </Button>
         </InputGroup>
       </Container>
+      {/* container para mostrar o artista */}
       <Container className={styles.artistContainer}>
         {
           artists.map((artist, i) => {
@@ -138,6 +130,7 @@ function trackUrlCheck(trackUrl){
           })
         }
       </Container>
+      {/* container para mostrar as musicas */}
       <Container>
         <Row className="mx cols-4">
             <h1 className={styles.titleList}>{textHidden}</h1>
