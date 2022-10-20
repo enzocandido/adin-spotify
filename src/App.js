@@ -36,6 +36,7 @@ function App() {
 //busca
 async function search(){
   // request usando a busca para conseguir o id do artista
+
   var searchParameters = {
     method: 'GET',
     headers: {
@@ -78,14 +79,15 @@ function searchClasses(){
 
 function trackUrlCheck(trackUrl){
   if(trackUrl !== null){
+
     return(
-      <audio controls="controls">
+      <audio controls className={styles.audioClass}>
         <source src={trackUrl} type="audio/mpeg"></source>
       </audio>
     )
   } else {
     return(
-      <h1>Sem preview.</h1>
+      <h3 className={styles.h1Preview}>Sem preview</h3>
     )
   }
 }
