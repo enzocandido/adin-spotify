@@ -202,7 +202,7 @@
 
 
 .inputContainer {
-    height: 100px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -249,4 +249,68 @@
     text-align: left;
     width: 100%;
     color: aliceblue;
+}
+
+.h1Preview {
+    font-size: 20px
+}
+
+.audioClass {
+    width: 180px;
+}
+
+@media (max-width: 770px) {
+
+    .cardArtistContainer .descriptionContent .cardArtistTitle {
+        font-size: 45px;
+    line-height: 50px;
+    margin-bottom: 30px;
+    }
+
+    .cardArtistContainer .descriptionContent .cardArtistDescri {
+
+        font-size:20px ;
+        font-weight: 600;
+    
+    }
+    
+    .cardArtistContainer .descriptionContent .cardArtistDescri p{
+        font-size: 14px;
+        border-top: 1px solid white;
+        width: 60%;
+        margin-top: 5px;
+        padding-top: 3px;
+        
+    }
+    .background .cardTitle {
+        font-size: 18px;
+        width: 100%;
+        text-align: left;
+        padding-right: 10px;
+        
+    }
+    .background .cardContentLink {
+        /* background-color:aqua; */
+        width: 13%;
+        line-height: 18px;
+        font-size: 14px;
+        
+    }
+
+    .container {
+        padding: 100px;
+    }
+    
+    
+}
+
+@media (max-width: 550px) {
+
+    /* .inputContainer button {
+        width: 100px;
+        font-size: 16px !important;
+    } */
+    .cardArtistContainer {
+        flex-wrap: wrap;
+    }
 }
