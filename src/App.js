@@ -58,14 +58,14 @@ async function search(){
     .then(data => {
       setArtist(data.artists);
     });
-    console.log(artists);
+    //console.log(artists);
 
   var topTracks = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks?country=BR', searchParameters)
     .then(response => response.json())
     .then(data => {
       setTracks(data.tracks);
     });
-    console.log(tracks)   
+    //console.log(tracks)   
     
    
 }
@@ -100,7 +100,7 @@ function searchClasses(){
         {
           artists.map((artist, i) => {
             return (
-              <Card className={`${styles.background} ${styles.cardArtistContainer}`}>
+              <Card key={i} className={`${styles.background} ${styles.cardArtistContainer}`}>
                 <Card.Img className={styles.cardArtistImage}
                   src={artist.images[0].url}
                 />
@@ -126,7 +126,7 @@ function searchClasses(){
             <h1 className={styles.titleList}>{textHidden}</h1>
             {tracks.map((track, i) => {
               return (
-                <Card className={`${styles.background} ${styles.cardContainer}`}>
+                <Card key={i} className={`${styles.background} ${styles.cardContainer}`}>
                     <Card.Body className={styles.cardContent}>
                       <div>
                         <Card.Title className={styles.cardTitle}>
