@@ -75,6 +75,21 @@ function searchClasses(){
     setSearchStatus(searchStatus => !searchStatus);
   search();
 }
+
+function trackUrlCheck(trackUrl){
+  if(trackUrl !== null){
+    return(
+      <audio controls="controls">
+        <source src={trackUrl} type="audio/mpeg"></source>
+      </audio>
+    )
+  } else {
+    return(
+      <h1>Sem preview.</h1>
+    )
+  }
+}
+
 // mostrar todos as tracks para o usuario 
   return (
     <div className="App"> 
@@ -133,9 +148,7 @@ function searchClasses(){
                           {track.name}
                         </Card.Title>                         
                       </div>
-                      <audio controls="controls">
-                        <source src={track.preview_url} type="audio/mpeg"></source>
-                      </audio>
+                     {trackUrlCheck(track.preview_url)}
                     </Card.Body>
                     <Card.Body className={`p-2 m-1 ${styles.cardContentLink}`}>
                       <a href={track.external_urls.spotify} className={styles.cardLink} target="_noblank">Ouvir no Spotify</a>
