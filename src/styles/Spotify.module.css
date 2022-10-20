@@ -32,7 +32,7 @@
     border: none;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row;
 
 }
@@ -54,6 +54,9 @@
     margin-left: 20px ;
     display: flex;
     flex-direction: column;
+    background-color: #191414;
+    padding: 20px 50px;
+    border-radius: 10px;
 
 }
 
@@ -123,6 +126,8 @@
 
 
 
+
+
 .background .cardTitle {
     /* background-color:aqua; */
     display: flex;
@@ -186,6 +191,10 @@
 .container{
     height: calc(99vh - 65px);
     padding: 210px;
+}
+
+.esconder {
+    display: hidden;
 }
 
 /* Estilos dos inputs */
