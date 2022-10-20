@@ -3,6 +3,7 @@
     margin: 0 ;
     margin: 20px 0px 40px;
     padding: 20px 30px;
+    cursor: default;
 }
 
 .background{
@@ -116,6 +117,7 @@
     justify-content: center;
     margin: 0;
     color: azure;
+    cursor: default;
 }
 
 .background .cardContentLink {
@@ -213,15 +215,20 @@
     text-align: left;
     width: 100%;
     color: aliceblue;
+    cursor: default;
 }
 
 .h1Preview {
-    font-size: 20px
+    font-size: 20px;
+    cursor: default;
+    opacity: 0.5;
 }
 
 .audioClass {
-    width: 180px;
+    width: 100px;
+    border: none;
 }
+
 
 @media (max-width: 770px) {
     .cardArtistContainer .descriptionContent .cardArtistTitle {
@@ -256,6 +263,11 @@
 
     .container {
         padding: 100px;
+    }
+    .audioClass {
+        width: 200px;
+        margin-right: 20px;
+        padding-left: 20px;
     }
 }
 

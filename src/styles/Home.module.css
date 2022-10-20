@@ -72,10 +72,10 @@ body {
     background-size: 300% 300%;
     background-image: linear-gradient(
           -45deg, 
-          rgb(19, 198, 87) 0%, 
-          rgb(0, 255, 76) 25%, 
-          rgb(1, 100, 22) 51%, 
-          rgb(0, 79, 24) 100%
+          rgb(0, 250, 96) 0%, 
+          rgb(0, 190, 57) 25%, 
+          rgb(0, 142, 31) 51%, 
+          rgb(0, 52, 16) 100%
     );  
     animation: AnimateBG 20s ease infinite;
   }

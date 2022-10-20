@@ -15,6 +15,6 @@ function RoutesIndex() {
             {/* <Footer /> */}
         </Router>
     )
- }
+}
  
- export default RoutesIndex;
+export default RoutesIndex;

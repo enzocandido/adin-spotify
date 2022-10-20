@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(8,78,35);
-  background: linear-gradient(344deg, rgba(8,78,35,1) 0%, rgba(19,198,87,1) 46%, rgba(11,105,47,1) 100%);
+  background: rgb(3, 144, 57);
+  background: linear-gradient(344deg, rgb(0, 26, 11) 0%, rgb(16, 145, 65) 100%);
 }
 
 code {
@@ -23,12 +23,18 @@ card {
 }
 
 audio::-webkit-media-controls-panel {
-  background-color: #00cd4f;
+  padding-left: 2.85em;
+  background-color: #1db954;
+  border: none;
 }
 
 audio::-webkit-media-controls-timeline,
 audio::-webkit-media-controls-current-time-display,
 audio::-webkit-media-controls-time-remaining-display {
-  display: none;
+  display: none !important;
 }
 
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-volume-slider {
+  display: none !important;
+}

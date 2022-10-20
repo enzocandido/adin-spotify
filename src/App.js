@@ -71,13 +71,13 @@ function searchClasses(){
 function trackUrlCheck(trackUrl){
   if(trackUrl !== null){
     return(
-      <audio controls className={styles.audioClass}>
+      <audio controls controlslist="nodownload noplaybackrate" className={styles.audioClass}>
         <source src={trackUrl} type="audio/mpeg"></source>
       </audio>
     )
   } else {
     return(
-      <h3 className={styles.h1Preview}>Sem preview</h3>
+        <h3 className={styles.h1Preview}>Sem preview</h3>
     )
   }
 }
@@ -131,7 +131,7 @@ function trackUrlCheck(trackUrl){
         }
       </Container>
       {/* container para mostrar as musicas */}
-      <Container>
+      <Container className="mb-3">
         <Row className="mx cols-4">
             <h1 className={styles.titleList}>{textHidden}</h1>
             {tracks.map((track, i) => {
