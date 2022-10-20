@@ -16,6 +16,8 @@ function App() {
   const [ artists, setArtist] = useState([]);
   const [ searchStatus, setSearchStatus] = useState(false);
   let classSearchStatus = searchStatus ? '' : styles.container
+  let textHidden = searchStatus ? "Populares" : ""
+
 
   useEffect(() => {
     //API Token
@@ -73,7 +75,6 @@ function searchClasses(){
     setSearchStatus(searchStatus => !searchStatus);
   search();
 }
-
 // mostrar todos as tracks para o usuario 
   return (
     <div className="App"> 
@@ -122,7 +123,7 @@ function searchClasses(){
       </Container>
       <Container>
         <Row className="mx cols-4">
-            <h1 className={styles.titleList}>Populares</h1>
+            <h1 className={styles.titleList}>{textHidden}</h1>
             {tracks.map((track, i) => {
               return (
                 <Card className={`${styles.background} ${styles.cardContainer}`}>
