@@ -4,6 +4,7 @@ import { Container, InputGroup, FormControl, Button, Row, Card} from 'react-boot
 import { useState, useEffect } from 'react';
 import styles from "./styles/Spotify.module.css";
 
+
 const CLIENT_ID = '9d1a189307f24dedaeffe23b35257742';
 const CLIENT_SECRET = '57208f8db8724ba182ff6ef0f8c342d4';
 
@@ -55,7 +56,7 @@ async function search(){
     .then(data => {
       setArtist(data.artists);
     });
-    //console.log(artists);
+    console.log(artists);
 
   var topTracks = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks?country=BR', searchParameters)
     .then(response => response.json())
@@ -75,11 +76,11 @@ function searchClasses(){
 
 // mostrar todos as tracks para o usuario 
   return (
-    <div className="App">
+    <div className="App"> 
     <Container className={classSearchStatus}>
-      <Container>
+      <Container className={styles.inputContainer}>
         <InputGroup className={styles.input} size="lg">
-          <FormControl
+          <FormControl className={styles.inputContent}
             placeholder="Busque o artista"
             type="input"
             onKeyPress={event => {
@@ -94,20 +95,26 @@ function searchClasses(){
             </Button>
         </InputGroup>
       </Container>
-      <Container className="column col-3 mt-4">
+      <Container className={styles.artistContainer}>
         {
           artists.map((artist, i) => {
             return (
-              <Card className={styles.background}>
-                <Card.Img className="rounded-circle center img-fluid p-4"
+              <Card className={`${styles.background} ${styles.cardArtistContainer}`}>
+                <Card.Img className={styles.cardArtistImage}
                   src={artist.images[0].url}
                 />
-              <Card.Title className="mt-2 mb-4 font-weight-bold">
-                {artist.name}
-              </Card.Title>
-              <Card.Body>
-                <a href={'https://open.spotify.com/artist/' + artist.id} target="_noblank">Ver no Spotify</a>
-              </Card.Body>
+                <div className={styles.descriptionContent}>
+                  <Card.Title className={styles.cardArtistTitle}>
+                    {artist.name}
+                  </Card.Title>
+                  <Card.Title className={styles.cardArtistDescri}>
+                    {artist.followers.total}
+                    <p>Seguidores</p>
+                  </Card.Title>
+                  <Card.Body className={styles.cardArtistLink}>
+                    <a href={'https://open.spotify.com/artist/' + artist.id} target="_noblank">Ver no Spotify</a>
+                  </Card.Body>
+                </div>
               </Card>
             )
           })
@@ -115,18 +122,23 @@ function searchClasses(){
       </Container>
       <Container>
         <Row className="mx cols-4">
+            <h1 className={styles.titleList}>Populares</h1>
             {tracks.map((track, i) => {
               return (
-                <Card className={styles.background}>
-                  <Card.Body className="p-5 m-1">
-                    <Card.Title className="mb-4">{track.name}</Card.Title>
-                    <audio controls="controls">
-                      <source src={track.preview_url} type="audio/mpeg"></source>
-                    </audio>
-                  </Card.Body>
-                  <Card.Body>
-                    <a href={track.external_urls.spotify} target="_noblank">Ouvir no Spotify</a>
-                  </Card.Body>
+                <Card className={`${styles.background} ${styles.cardContainer}`}>
+                    <Card.Body className={styles.cardContent}>
+                      <div>
+                        <Card.Title className={styles.cardTitle}>
+                          {track.name}
+                        </Card.Title>                         
+                      </div>
+                      <audio controls="controls">
+                        <source src={track.preview_url} type="audio/mpeg"></source>
+                      </audio>
+                    </Card.Body>
+                    <Card.Body className={`p-2 m-1 ${styles.cardContentLink}`}>
+                      <a href={track.external_urls.spotify} className={styles.cardLink} target="_noblank">Ouvir no Spotify</a>
+                    </Card.Body>
                 </Card>
               )
             })}
