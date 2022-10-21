@@ -55,7 +55,7 @@
 }
 
 .cardArtistContainer .descriptionContent .cardArtistTitle {
-    font-size: 100px;
+    font-size: 80px;
     font-weight: 700;
 }
 .cardArtistContainer .descriptionContent .cardArtistDescri {
@@ -321,9 +321,17 @@
 
     }
 
+    .h1Preview {
+        font-size: 18px;
+        cursor: default;
+        opacity: 0.5;
+        margin-right: 20px;
+    }
+
 }
 
 @media (max-width: 550px) {
+
 
 
     .cardArtistContainer .descriptionContent .cardArtistTitle {
@@ -349,6 +357,7 @@
         width: 15%;
         line-height: 10px;
         font-size: 8px;
+        display: none;
     }
     .background .cardContentLink .cardLink {
         padding: 4px 10px;
@@ -442,9 +451,17 @@
     }
 
     .audioClass {
-        width: 80px !important;
+        width: 101px !important;
         margin-right: 5px;
         padding-left: 0px;
     }
+
+    .h1Preview {
+        font-size: 14px;
+        cursor: default;
+        opacity: 0.5;
+        margin-right: 15px;
+    }
+
 
 }
