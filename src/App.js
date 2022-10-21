@@ -51,14 +51,14 @@ async function search(){
     .then(data => {
       setArtist(data.artists);
     });
-    //console.log(artists);
+    console.log(artists);
 
   var topTracks = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks?country=BR', searchParameters)
     .then(response => response.json())
     .then(data => {
       setTracks(data.tracks);
     });
-    console.log(tracks)   
+    // console.log(tracks)   
 }
 
 //funcao para alterar classe apos a pesquisa
@@ -119,7 +119,7 @@ function trackUrlCheck(trackUrl){
                     {artist.name}
                   </Card.Title>
                   <Card.Title className={styles.cardArtistDescri}>
-                    {artist.followers.total}
+                    {(artist.followers.total).toLocaleString('pt-BR')}
                     <p>Seguidores</p>
                   </Card.Title>
                   <Card.Body className={styles.cardArtistLink}>
