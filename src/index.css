@@ -28,6 +28,11 @@ audio::-webkit-media-controls-panel {
   border: none;
 }
 
+audio {
+  width: 100px !important;
+  height: 40px;
+}
+
 audio::-webkit-media-controls-timeline,
 audio::-webkit-media-controls-current-time-display,
 audio::-webkit-media-controls-time-remaining-display {
@@ -37,4 +42,11 @@ audio::-webkit-media-controls-time-remaining-display {
 audio::-webkit-media-controls-mute-button,
 audio::-webkit-media-controls-volume-slider {
   display: none !important;
+}
+
+@media (max-width:550px) {
+  audio {
+    width: 80px !important;
+    height: 30px;
+  }
 }
