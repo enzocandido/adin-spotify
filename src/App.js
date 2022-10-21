@@ -19,6 +19,7 @@ function App() {
 
   useEffect(() => {
     //autenticacao com token para acessar api
+
     var authParameters = {
       method: 'POST',
       headers: {
@@ -57,7 +58,7 @@ async function search(){
     .then(data => {
       setTracks(data.tracks);
     });
-    //console.log(tracks)   
+    console.log(tracks)   
 }
 
 //funcao para alterar classe apos a pesquisa
@@ -139,13 +140,16 @@ function trackUrlCheck(trackUrl){
                 <Card key={i} className={`${styles.background} ${styles.cardContainer}`}>
                     <Card.Body className={styles.cardContent}>
                       <div>
+                        <Card.Title className={styles.cardTop10}>
+                          {i + 1}
+                        </Card.Title> 
                         <Card.Title className={styles.cardTitle}>
                           {track.name}
                         </Card.Title>                         
                       </div>
                      {trackUrlCheck(track.preview_url)}
                     </Card.Body>
-                    <Card.Body className={`p-2 m-1 ${styles.cardContentLink}`}>
+                    <Card.Body className={`m-1 ${styles.cardContentLink}`}>
                       <a href={track.external_urls.spotify} className={styles.cardLink} target="_noblank">Ouvir no Spotify</a>
                     </Card.Body>
                 </Card>
