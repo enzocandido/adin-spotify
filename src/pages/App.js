@@ -1,8 +1,10 @@
-import './App.css';
+import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import styles from "./styles/Spotify.module.css";
+import styles from "../styles/Spotify.module.css";
+import { FiSearch } from 'react-icons/fi';
+
 
 const CLIENT_ID = '9d1a189307f24dedaeffe23b35257742';
 const CLIENT_SECRET = '57208f8db8724ba182ff6ef0f8c342d4';
@@ -34,7 +36,8 @@ function App() {
 
 //busca
 async function search(){
-  // request para conseguir o id do artista
+  setTracks([])
+
   var searchParameters = {
     method: 'GET',
     headers: {
@@ -51,7 +54,7 @@ async function search(){
     .then(data => {
       setArtist(data.artists);
     });
-    console.log(artists);
+    // console.log(artists);
 
   var topTracks = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks?country=BR', searchParameters)
     .then(response => response.json())
@@ -63,8 +66,9 @@ async function search(){
 
 //funcao para alterar classe apos a pesquisa
 function searchClasses(){
-  if(searchStatus == false && searchInput !== '')
+  if(searchStatus === false && searchInput !== ''){
     setSearchStatus(searchStatus => !searchStatus);
+  }
   search();
 }
 
@@ -82,7 +86,6 @@ function trackUrlCheck(trackUrl){
     )
   }
 }
-
 //retornar os dados para o usuario
   return (
     <div className="App"> 
@@ -94,14 +97,14 @@ function trackUrlCheck(trackUrl){
             placeholder="Busque o artista"
             type="input"
             onKeyPress={event => {
-              if(event.key == "Enter"){
+              if(event.key === "Enter"){
                 searchClasses();
               }
             }}
             onChange= {event => setSearchInput(event.target.value)}
             />
             <Button onClick={searchClasses}>
-              Buscar
+              <FiSearch color="white" />
             </Button>
         </InputGroup>
       </Container>

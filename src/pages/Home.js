@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './styles/Home.module.css'
+import styles from '../styles/Home.module.css'
 
 const Home = () =>{
   return (
@@ -8,7 +8,7 @@ const Home = () =>{
         <ul>
             <Link to="/spotify">
               <button className={styles.botao} type="button">
-                INICIAR
+                Iniciar
               </button>
               </Link>
         </ul>

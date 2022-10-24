@@ -77,7 +77,7 @@
 
 .cardArtistContainer .descriptionContent .cardArtistLink {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: center;
 }
 
@@ -96,8 +96,13 @@
     display: flex ;
     flex-direction: row;
     background-color: #19141478;
+    background-color: transparent;
     height: 70px;
     margin: 10px;
+}
+
+.cardContainer:hover {
+    background-color: #dcdcdc17;
 }
 
 .background .cardContent {
@@ -151,7 +156,7 @@
     margin: 0 !important;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     padding: 0;
     padding-right: 5px;
 }
@@ -191,7 +196,7 @@
 }
 
 .container{
-    height: calc(99vh - 64px);
+    height: 85vh;
     overflow: hidden;
 }
 
@@ -213,31 +218,40 @@
 }
 
 .inputContainer input {
-    background-color: #191414;
+    /* background-color: #191414; */
     border: none;
     border-bottom: 2px solid white;
-    color: azure;
+    color: #191414;
+    background-color: white;
+    border-radius:4rem !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    padding-left: 30px !important;
+
 }
 
 .inputContainer input:hover {
-    background-color: #191414;
+    /* background-color: #191414; */
+    background-color: white;
 }
 .inputContainer input:focus {
-    background-color: #191414;
-    color: azure;
+    background-color: white;
+    /* background-color: #191414; */
 }
 
 .inputContainer button {
     background-color: #00b941;
     border: none;
-    width: 200px;
+    width: 100px;
+    border-radius:4rem !important;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
 }
 
 .inputContainer button:hover {
     transition-duration: 0.2s;
     background-color: #0b8837;
     border: none;
-    width: 200px;
 }
 
 .titleList {
