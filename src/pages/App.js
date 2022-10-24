@@ -72,6 +72,11 @@ function searchClasses(){
   search();
 }
 
+function leftPad(value, totalWidth, paddingChar) {
+  var length = totalWidth - value.toString().length + 1;
+  return Array(length).join(paddingChar || '0') + value;
+};
+
 //funcao para verificar se a url da track existe
 function trackUrlCheck(trackUrl){
   if(trackUrl !== null){
@@ -144,7 +149,7 @@ function trackUrlCheck(trackUrl){
                     <Card.Body className={styles.cardContent}>
                       <div>
                         <Card.Title className={styles.cardTop10}>
-                          {i + 1}
+                          {leftPad((i + 1), 2)}
                         </Card.Title> 
                         <Card.Title className={styles.cardTitle}>
                           {track.name}
