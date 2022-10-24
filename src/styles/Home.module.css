@@ -4,8 +4,8 @@ body {
 }
 
 .botao {
-    width: 220px;
-    height: 50px;
+    width: 300px;
+    height: 70px;
     border: none;
     outline: none;
     color: #fff;
@@ -14,6 +14,9 @@ body {
     position: relative;
     z-index: 0;
     border-radius: 10px;
+    font-size: 27px;
+    font-weight: 600;
+    font-family: "nunito", sans-serif;
 }
 
 .botao:before {
@@ -64,7 +67,7 @@ body {
 }
 
 .bg {
-    height: calc(99vh - 65px);
+    height: 85vh;
     width: 100%;
     display: flex;
     align-items: center;
